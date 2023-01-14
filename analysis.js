@@ -1,26 +1,30 @@
-// count total months by  using .length
+// Prints heading to console
+console.log("Financial Analysis \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ")
+
+// Count the total number of months by  using .length
 var totalMonths = finances.length;
 
-console.log(totalMonths);
+// Prints the total number of months to the console and makes the browser show this value as well
+console.log("Total Months: " + totalMonths);
 
 document.getElementById("total_months_value").innerHTML = totalMonths;
 
-// Net total of profits and losses by summing up only the second values in the array
+// Find net total amount of profits/losses by summing up only the second values in each array
 var totalProfitLoss = 0;
 
-for (var record=0; record <totalMonths; record++) {
-    totalProfitLoss += finances[record][1];
+for (var i=0; i < totalMonths; i++) {
+    totalProfitLoss += finances[i][1];
 }
 
-console.log(totalProfitLoss)
+console.log("Total: $" + totalProfitLoss)
 
 document.getElementById("total_profit_loss_value").innerHTML = totalProfitLoss;
 
 // Average change calculated by finding the changes on a month by month basis and then summing up those changes, then dividing by total number of months
 var averageChange = 0;
 
-for (var record=0; record <totalMonths; record++) {
-    totalProfitLoss += finances[record][1];
+for (var i=0; i <totalMonths; i++) {
+    totalProfitLoss += finances[i][1];
 }
 
 console.log(averageChange)
