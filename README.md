@@ -14,7 +14,7 @@
 The goal was to try and apply my newly learned Javascript skills (Iterating over arrays and writing basic for loops) in developing a simple financial analysis tool for use in a real-world situation. Hence, I wrote some code to analyze the financial records of a company using a financial dataset (received in form of an array) that shows the companies profit and loss numbers on a month by month basis for about 84 months.
 
 <p align="center">
-  <img src="./assets/images/deployed_screenshot.png" width="350" title="hover text" alt="Screenshot of deployed application">
+  <img src="./assets/images/deployed_screenshot.png" width="700" title="As seen on a browser" alt="Screenshot of deployed application">
 </p>
 
 ## Usage
