@@ -41,16 +41,19 @@ var monthToMonthChanges = newArrayCreator(finances);
 
 
 // Average change calculated after tracking the changes on a month by month basis, then summing up those changes, before then dividing by the total number of months
-var totalChanges = 0;
+    
+    // First sum up all the changes
+    var totalChanges = 0;
 
-for (var i=0; i < monthToMonthChanges.length; i++) {
-    totalChanges += monthToMonthChanges[i];
-}
-console.log("total changes is " + totalChanges);
-// var averagePLchange = totalProfitLoss/totalMonths;
+    for (var i=0; i < monthToMonthChanges.length; i++) {
+        totalChanges += monthToMonthChanges[i];
+    }
 
-// console.log("Average Change: $" + averagePLchange);
-// document.getElementById("average_change_value").innerHTML = averagePLchange;
+    // Then find the average of the changes
+    var averagePLchange = totalChanges/monthToMonthChanges.length;
+
+console.log("Average Change: $" + averagePLchange);
+document.getElementById("average_change_value").innerHTML = averagePLchange;
 
 
 
