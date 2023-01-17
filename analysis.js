@@ -40,7 +40,7 @@ function newArrayCreator(existingArray) {
 var monthToMonthChanges = newArrayCreator(finances);
 
 
-// Average change calculated after tracking the changes on a month by month basis, then summing up those changes, before then dividing by the total number of months
+// Average change calculated after tracking the changes month by month, then summing up those changes, before then dividing by the number of months, and finally converting our answer to the nearest hundredth
     
     // First sum up all the changes
     var totalChanges = 0;
@@ -52,8 +52,13 @@ var monthToMonthChanges = newArrayCreator(finances);
     // Then find the average of the changes
     var averagePLchange = totalChanges/monthToMonthChanges.length;
 
-console.log("Average Change: $" + averagePLchange);
-document.getElementById("average_change_value").innerHTML = averagePLchange;
+    // And finally, convert our average to the nearest hundredth
+    function hundredthRounder(numberToBeRounded) {
+        return Math.round(numberToBeRounded * 100) / 100;
+    }
+
+console.log("Average Change: $" + hundredthRounder(averagePLchange));
+document.getElementById("average_change_value").innerHTML = hundredthRounder(averagePLchange);
 
 
 
