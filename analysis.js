@@ -18,21 +18,13 @@ for (var i=0; i < totalMonths; i++) {
 console.log("Total: $" + totalProfitLoss);
 document.getElementById("total_profit_loss_value").innerHTML = totalProfitLoss;
 
-// Average change calculated by finding the changes on a month by month basis and then summing up those changes, then dividing by total number of months
-
-var averagePLchange = totalProfitLoss/totalMonths;
-
-console.log("Average Change: $" + averagePLchange);
-document.getElementById("average_change_value").innerHTML = averagePLchange;
-
-
 // A simple function to calculate the difference (change) between two months
 function changeFinder(month1, month2) {
      let change = month2 - month1;
      return change;
 }
 
-// A function to create a new array from the differences month to month in an existing array
+// A function to create a new array from the month to month changes in an existing array
 function newArrayCreator(existingArray) {
     let changesArray = [];
     for (var i=0; i < (existingArray.length-1); i++) {
@@ -41,13 +33,27 @@ function newArrayCreator(existingArray) {
         let difference = changeFinder(m1,m2);
         changesArray.push(difference);
     }
-    return changesArray
+    return changesArray;
 }
 
 // Running the existing finances array through my array creator function to produce just the changes as a new array
 var monthToMonthChanges = newArrayCreator(finances);
 
-console.log(monthToMonthChanges);
+
+// Average change calculated after tracking the changes on a month by month basis, then summing up those changes, before then dividing by the total number of months
+var totalChanges = 0;
+
+for (var i=0; i < monthToMonthChanges.length; i++) {
+    totalChanges += monthToMonthChanges[i];
+}
+console.log("total changes is " + totalChanges);
+// var averagePLchange = totalProfitLoss/totalMonths;
+
+// console.log("Average Change: $" + averagePLchange);
+// document.getElementById("average_change_value").innerHTML = averagePLchange;
+
+
+
 
 // after finding the changes on a month by monmth basis, pick which has the highest positibe value
 // after finding the changes on a month by monmth basis, pick which has the highest negative value
