@@ -25,36 +25,29 @@ var averagePLchange = totalProfitLoss/totalMonths;
 console.log("Average Change: $" + averagePLchange);
 document.getElementById("average_change_value").innerHTML = averagePLchange;
 
-// after finding the changes on a month by monmth basis, pick which has the highest positibe value
 
+// A simple function to calculate the difference (change) between two months
 function changeFinder(month1, month2) {
-     let results = month2 - month1;
-     console.log(results);
-     return results
+     let change = month2 - month1;
+     return change;
 }
 
-function arrayCreator(arr) {
-    let diffArray = [];
-    for (var i=0; i < (arr.length-1); i++) {
-        let m1 = arr[i][1];
-        let m2 = arr[i+1][1];
-        let difference = changeFinder(m1,m2)
-        diffArray.push(difference)
+// A function to create a new array from the differences month to month in an existing array
+function newArrayCreator(existingArray) {
+    let changesArray = [];
+    for (var i=0; i < (existingArray.length-1); i++) {
+        let m1 = existingArray[i][1];
+        let m2 = existingArray[i+1][1];
+        let difference = changeFinder(m1,m2);
+        changesArray.push(difference);
     }
-    return diffArray
+    return changesArray
 }
 
-var testarray = [
-    ['Jan-2010', 867884],
-    ['Feb-2010', 984655],
-    ['Mar-2010', 322013],
-    ['Apr-2010', -69417]
-]
+// Running the existing finances array through my array creator function to produce just the changes as a new array
+var monthToMonthChanges = newArrayCreator(finances);
 
-var xl = arrayCreator(testarray);
-console.log(xl);
+console.log(monthToMonthChanges);
 
-
-
-console.log(changeFinder(500,400))
+// after finding the changes on a month by monmth basis, pick which has the highest positibe value
 // after finding the changes on a month by monmth basis, pick which has the highest negative value
