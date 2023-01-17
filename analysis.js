@@ -57,11 +57,27 @@ var monthToMonthChanges = newArrayCreator(finances);
         return Math.round(numberToBeRounded * 100) / 100;
     }
 
-console.log("Average Change: $" + hundredthRounder(averagePLchange));
-document.getElementById("average_change_value").innerHTML = hundredthRounder(averagePLchange);
+    console.log("Average Change: $" + hundredthRounder(averagePLchange));
+    document.getElementById("average_change_value").innerHTML = hundredthRounder(averagePLchange);
 
 
+// after finding the changes on a month by monmth basis, pick which has the highest value
+function getMaxOfArray(ArrayToCheck) {
+    return Math.max.apply(null, ArrayToCheck);
+  }
 
+// after finding the changes on a month by monmth basis, pick which has the lowest value
+function getMinOfArray(ArrayToCheck) {
+    return Math.min.apply(null, ArrayToCheck);
+  }
 
-// after finding the changes on a month by monmth basis, pick which has the highest positibe value
-// after finding the changes on a month by monmth basis, pick which has the highest negative value
+// printing the highest and lowest changes to the console and to browser
+const testArray = [67, 54, -21, 4000, -6000, 1, 0]
+console.log(getMaxOfArray(testArray))
+console.log(getMinOfArray(testArray))
+
+console.log("Greatest Increase in Profits:" + getMaxOfArray(testArray));
+document.getElementById("greatest_increase_value").innerHTML = getMaxOfArray(testArray);
+
+console.log("Greatest Decrease in Profits:" + getMinOfArray(testArray));
+document.getElementById("greatest_decrease_value").innerHTML = getMinOfArray(testArray);
